@@ -3,11 +3,107 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, BarChart3, PieChart, Wallet, TrendingUp, Shield, Smartphone, Clock, Target, Star, Users, CheckCircle } from "lucide-react";
+import { ArrowRight, BarChart3, PieChart, Wallet, TrendingUp, Shield, Smartphone, Clock, Target, Star, Users, CheckCircle, DollarSign, Calendar, Edit3, Trash2, Plus, Filter, AlertCircle, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-  const features = [
+  const stages = [
+    {
+      stage: "Stage 1",
+      title: "Basic Transaction Tracking",
+      subtitle: "Start Your Financial Journey",
+      description: "Get started with essential transaction management features to track your daily income and expenses.",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100",
+      borderColor: "border-blue-200",
+      features: [
+        {
+          icon: <Plus className="h-5 w-5" />,
+          title: "Add/Edit/Delete Transactions",
+          description: "Easily manage transactions with amount, date, and description fields"
+        },
+        {
+          icon: <Filter className="h-5 w-5" />,
+          title: "Transaction List View",
+          description: "View all your transactions in a clean, organized list format"
+        },
+        {
+          icon: <BarChart3 className="h-5 w-5" />,
+          title: "Monthly Expenses Chart",
+          description: "Visual bar chart showing your monthly spending patterns"
+        },
+        {
+          icon: <CheckCircle className="h-5 w-5" />,
+          title: "Form Validation",
+          description: "Built-in validation ensures data accuracy and consistency"
+        }
+      ]
+    },
+    {
+      stage: "Stage 2",
+      title: "Categories & Dashboard",
+      subtitle: "Enhanced Insights & Organization",
+      description: "Build upon Stage 1 with powerful categorization and dashboard features for better financial insights.",
+      color: "from-green-500 to-green-600",
+      bgColor: "from-green-50 to-green-100",
+      borderColor: "border-green-200",
+      features: [
+        {
+          icon: <Target className="h-5 w-5" />,
+          title: "Predefined Categories",
+          description: "Organize transactions with built-in categories like Food, Transport, Entertainment"
+        },
+        {
+          icon: <PieChart className="h-5 w-5" />,
+          title: "Category-wise Pie Chart",
+          description: "Visual breakdown of spending across different categories"
+        },
+        {
+          icon: <DollarSign className="h-5 w-5" />,
+          title: "Dashboard Summary Cards",
+          description: "Quick overview of total expenses, income, and category breakdown"
+        },
+        {
+          icon: <Calendar className="h-5 w-5" />,
+          title: "Recent Transactions",
+          description: "Quick access to your most recent financial activities"
+        }
+      ]
+    },
+    {
+      stage: "Stage 3",
+      title: "Budgeting & Insights",
+      subtitle: "Advanced Financial Planning",
+      description: "Complete financial management with budgeting tools and intelligent spending insights.",
+      color: "from-purple-500 to-purple-600",
+      bgColor: "from-purple-50 to-purple-100",
+      borderColor: "border-purple-200",
+      features: [
+        {
+          icon: <Settings className="h-5 w-5" />,
+          title: "Monthly Category Budgets",
+          description: "Set spending limits for each category to stay on track"
+        },
+        {
+          icon: <TrendingUp className="h-5 w-5" />,
+          title: "Budget vs Actual Chart",
+          description: "Compare your planned budget with actual spending patterns"
+        },
+        {
+          icon: <AlertCircle className="h-5 w-5" />,
+          title: "Spending Insights",
+          description: "Get intelligent insights about your spending habits and trends"
+        },
+        {
+          icon: <Target className="h-5 w-5" />,
+          title: "Financial Goals",
+          description: "Track progress towards your financial objectives and milestones"
+        }
+      ]
+    }
+  ];
+
+  const currentFeatures = [
     {
       icon: <Wallet className="h-8 w-8 text-blue-600" />,
       title: "Smart Transaction Tracking",
@@ -91,8 +187,8 @@ const Landing = () => {
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Features</a>
+              <a href="#roadmap" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Roadmap</a>
               <a href="#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Reviews</a>
-              <a href="#pricing" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Pricing</a>
             </div>
             <Link to="/dashboard">
               <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6">
@@ -109,7 +205,7 @@ const Landing = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16 animate-fade-in">
             <Badge className="mb-6 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 hover:from-blue-200 hover:to-indigo-200 border-0 px-4 py-2">
-              🚀 Trusted by 50,000+ users worldwide
+              🚀 Currently in Stage 2 - Categories & Dashboard
             </Badge>
             
             <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 leading-tight">
@@ -120,20 +216,20 @@ const Landing = () => {
             </h1>
             
             <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Transform your financial habits with our professional-grade expense tracker. 
-              Get deep insights, visualize spending patterns, and make data-driven decisions 
-              that accelerate your path to financial freedom.
+              Transform your financial habits with our progressive expense tracker. 
+              Start with basic tracking, advance to categorization, and master budgeting - 
+              all at your own pace.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Link to="/dashboard">
                 <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-                  Start Free Trial
+                  Try Stage 2 Features
                   <ArrowRight className="ml-3 h-5 w-5" />
                 </Button>
               </Link>
               <Button variant="outline" size="lg" className="px-10 py-6 text-lg border-2 hover:bg-gray-50 transition-all duration-300">
-                Watch Demo
+                View Roadmap
               </Button>
             </div>
 
@@ -174,20 +270,81 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-24 px-6 bg-white">
+      {/* Development Roadmap */}
+      <section id="roadmap" className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Everything You Need for Financial Success
+              Progressive Development Roadmap
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional-grade features designed to give you complete control over your finances
+              Our finance tracker evolves with you through three carefully planned stages
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {stages.map((stage, index) => (
+              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className={`bg-gradient-to-r ${stage.bgColor} rounded-3xl p-8 ${stage.borderColor} border-2`}>
+                  <div className="flex flex-col lg:flex-row items-start gap-8">
+                    <div className="lg:w-1/3">
+                      <div className="flex items-center mb-4">
+                        <div className={`px-4 py-2 bg-gradient-to-r ${stage.color} text-white rounded-full text-sm font-bold mr-4`}>
+                          {stage.stage}
+                        </div>
+                        {index === 1 && (
+                          <Badge className="bg-green-500 text-white">Current</Badge>
+                        )}
+                        {index > 1 && (
+                          <Badge className="bg-gray-500 text-white">Coming Soon</Badge>
+                        )}
+                      </div>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">{stage.title}</h3>
+                      <h4 className="text-lg font-semibold text-gray-700 mb-4">{stage.subtitle}</h4>
+                      <p className="text-gray-600 leading-relaxed">{stage.description}</p>
+                    </div>
+                    
+                    <div className="lg:w-2/3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {stage.features.map((feature, featureIndex) => (
+                          <Card key={featureIndex} className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <CardContent className="p-6">
+                              <div className="flex items-start space-x-4">
+                                <div className={`p-3 bg-gradient-to-r ${stage.color} rounded-xl`}>
+                                  {React.cloneElement(feature.icon, { className: "text-white" })}
+                                </div>
+                                <div>
+                                  <h5 className="font-semibold text-gray-900 mb-2">{feature.title}</h5>
+                                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Current Features Section */}
+      <section id="features" className="py-24 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Available Features (Stage 2)
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Experience the power of categorized expense tracking with visual analytics
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {currentFeatures.map((feature, index) => (
               <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 animate-fade-in bg-gradient-to-br from-white to-gray-50" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader className="pb-6">
                   <div className={`mb-6 p-4 bg-gradient-to-r ${feature.gradient} rounded-2xl w-fit shadow-lg`}>
@@ -205,7 +362,7 @@ const Landing = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section id="testimonials" className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
@@ -248,24 +405,24 @@ const Landing = () => {
       <section className="py-24 px-6 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white">
         <div className="container mx-auto max-w-5xl text-center">
           <h2 className="text-5xl font-bold mb-8">
-            Ready to Transform Your Finances?
+            Ready to Start Your Financial Journey?
           </h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-            Join thousands of professionals who have taken control of their financial future. 
-            Start your journey today with our powerful, privacy-focused platform.
+            Begin with Stage 2 features including transaction categorization, visual analytics, 
+            and comprehensive dashboard. Upgrade to Stage 3 budgeting features coming soon!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Link to="/dashboard">
               <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 px-10 py-6 text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-                Start Free Trial
+                Try Stage 2 Now
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
             </Link>
           </div>
           
           <div className="text-sm opacity-75 space-x-8">
-            <span>✨ No credit card required</span>
+            <span>✨ No signup required</span>
             <span>🔒 100% Private & Secure</span>
             <span>📱 Works on all devices</span>
           </div>
@@ -284,16 +441,25 @@ const Landing = () => {
                 <span className="text-2xl font-bold text-white">FinanceTracker</span>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Professional financial management tools for individuals and businesses.
+                Progressive financial management tools that grow with your needs.
               </p>
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4">Product</h4>
+              <h4 className="text-white font-semibold mb-4">Features</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Security</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Transaction Tracking</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Category Analytics</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Visual Charts</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-semibold mb-4">Development</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Stage 1: Basic</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Stage 2: Categories</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Stage 3: Budgeting</a></li>
               </ul>
             </div>
             
@@ -302,28 +468,19 @@ const Landing = () => {
               <ul className="space-y-2">
                 <li><a href="#" className="hover:text-blue-400 transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-blue-400 transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">API Docs</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-blue-400 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Feedback</a></li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-gray-400">
-              © 2024 FinanceTracker. All rights reserved.
+              © 2024 FinanceTracker. Progressive Financial Management.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400 mt-4 md:mt-0">
               <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Cookie Policy</a>
+              <a href="#" className="hover:text-blue-400 transition-colors">Roadmap</a>
             </div>
           </div>
         </div>
